@@ -14,12 +14,11 @@ jobs:
       script: npm run lint
     - stage: test
       script: npm run test-headless
-    - stage: build
-      before_script:
-        - npm install -g @angular/cli
-      script: ng build --prod --base-href https://bamanczak.github.io/pesel/
     - stage: deploy
       deploy:
+        before_script:
+          - npm install -g @angular/cli
+        script: ng build --prod --base-href https://bamanczak.github.io/pesel/
         provider: pages
         skip_cleanup: true
         github_token: $GITHUB_TOKEN
@@ -29,5 +28,4 @@ jobs:
 stages:
   - lint
   - test
-  - build
   - deploy

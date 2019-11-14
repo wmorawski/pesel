@@ -34,24 +34,24 @@ Kod testów e2e znajduje się w `/e2e/src/app.e2e-spec.ts`
 
 ## Zadanie 1 - setup
 
-- [✔️] Stwórz forka repozytorium
-- [✔️] Sklonuj sforkowane repozytorium (pracujemy na swoich repozytoriach)
-- [✔️] Uruchom aplikację lokalnie
+- [x] Stwórz forka repozytorium
+- [x] Sklonuj sforkowane repozytorium (pracujemy na swoich repozytoriach)
+- [x] Uruchom aplikację lokalnie
 
 ## Zadanie 2 - naprawa testów
 
-- [✔️] Uruchom linter
-- [✔️] Napraw wszystkie błędy lintera (plik `/src/app/app.component.ts` )
-- [✔️] Uruchom testy jednostkowe
-- [✔️] Napraw testy jednostkowe
-- [✔️] Uruchom testy End-to-End
-- [✔️] Napraw test End-to-End
+- [x] Uruchom linter
+- [x] Napraw wszystkie błędy lintera (plik `/src/app/app.component.ts` )
+- [x] Uruchom testy jednostkowe
+- [x] Napraw testy jednostkowe
+- [x] Uruchom testy End-to-End
+- [x] Napraw test End-to-End
 
 ## Zadanie 3 - rozszerzenie unit testów
 
-- [✔️] Uruchom testy jednostkowe z flagą --code-coverage
-- [✔️] Zweryfikuj raport html pokrycia kodu w pliku .coverage\pesel\index.html
-  dopisz przypadki testowe, które zwiększa pokrycie - zignoruj przypadki dla funkcji onSubmit()
+- [x] Uruchom testy jednostkowe z flagą --code-coverage
+- [x] Zweryfikuj raport html pokrycia kodu w pliku .coverage\pesel\index.html
+      dopisz przypadki testowe, które zwiększa pokrycie - zignoruj przypadki dla funkcji onSubmit()
 
 ## Zadanie 4 - Konfiguracja pipeline'u CI
 
