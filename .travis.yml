@@ -8,8 +8,6 @@ addons:
 branches:
   only:
     - master
-before_script:
-  - npm install -g @angular/cli
 jobs:
   include:
     - stage: lint
@@ -17,6 +15,8 @@ jobs:
     - stage: test
       script: npm run test
     - stage: build
+      before_script:
+        - npm install -g @angular/cli
       script: ng build --prod --base-href https://bamanczak.github.io/pesel/
     - stage: deploy
       deploy:
