@@ -13,7 +13,7 @@ jobs:
     - stage: lint
       script: npm run lint
     - stage: test
-      script: npm run test
+      script: npm run test-headless
     - stage: build
       before_script:
         - npm install -g @angular/cli
