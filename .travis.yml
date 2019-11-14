@@ -18,14 +18,16 @@ jobs:
       script: npm run test
     - stage: build
       script: ng build --prod --base-href https://bamanczak.github.io/pesel/
+    - stage: deploy
+      deploy:
+        provider: pages
+        skip_cleanup: true
+        github_token: $GITHUB_TOKEN
+        local_dir: dist/pesel
+        on:
+          branch: master
 stages:
   - lint
   - test
   - build
-deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN
-  local_dir: dist/pesel
-  on:
-    branch: master
+  - deploy
