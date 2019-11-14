@@ -10,5 +10,15 @@ branches:
     - master
 before_script:
   - npm install -g @angular/cli
-script:
-  - ng build --prod --base-href https://bamanczak.github.io/pesel/
+jobs:
+  include:
+    - stage: lint
+      script: npm run lint
+    - stage: test
+      script: npm run test
+    - stage: build
+      script: ng build --prod --base-href https://bamanczak.github.io/pesel/
+stages:
+  - lint
+  - test
+  - build
