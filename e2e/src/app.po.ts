@@ -1,4 +1,4 @@
-import { browser, by, element } from 'protractor';
+import { browser, by, element } from "protractor";
 
 export class AppPage {
   navigateTo() {
@@ -6,6 +6,18 @@ export class AppPage {
   }
 
   getTitleText() {
-    return element(by.css('app-root h1')).getText() as Promise<string>;
+    return element(by.css("app-root h1")).getText() as Promise<string>;
+  }
+
+  typeIntoInput(typing: string) {
+    return element(by.name("peselInput")).sendKeys(typing);
+  }
+
+  submitInput() {
+    return element(by.id("submitForm")).click();
+  }
+
+  getErrorMessage() {
+    return element(by.className("isValidMessage")).getText();
   }
 }
