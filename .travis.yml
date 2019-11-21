@@ -17,7 +17,7 @@ jobs:
     - stage: deploy
       before_script:
         - npm install -g @angular/cli
-      script: ng build --prod --base-href https://bamanczak.github.io/pesel/
+      script: ng build --prod --base-href https://wmorawski.github.io/pesel/
       deploy:
         provider: pages
         skip_cleanup: true
