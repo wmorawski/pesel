@@ -1,45 +1,17 @@
-import {
-  Component,
-  OnInit
-} from '@angular/core';
-import {
-  trigger,
-  state,
-  style,
-  animate,
-  transition
-} from '@angular/animations';
-
+import { Component, OnInit } from '@angular/core';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   animations: [
-    trigger(
-      'inOutAnimation',
-      [
-        transition(
-          ':enter',
-          [
-            style({ opacity: 0 }),
-            animate('1s 0.35s ease-out',
-                    style({ opacity: 1 }))
-          ]
-        ),
-        transition(
-          ':leave',
-          [
-            style({ opacity: 1 }),
-            animate('0.3s ease-in',
-                    style({ opacity: 0 }))
-          ]
-        )
-      ]
-    )
-  ]
+    trigger('inOutAnimation', [
+      transition(':enter', [style({ opacity: 0 }), animate('1s 0.35s ease-out', style({ opacity: 1 }))]),
+      transition(':leave', [style({ opacity: 1 }), animate('0.3s ease-in', style({ opacity: 0 }))]),
+    ]),
+  ],
 })
-
 export class AppComponent {
   inputNumber: string;
   isValid: boolean;
@@ -50,7 +22,6 @@ export class AppComponent {
   isMale;
   isInitiated: boolean;
   hasFocus: boolean;
-
 
   onSubmit() {
     this.isInitiated = true;
@@ -68,11 +39,13 @@ export class AppComponent {
     } else {
       const peselArray = new Array();
       for (let i = 0; i < 11; i++) {
-        peselArray[i] = parseInt(pesel.substring(i, i + 1), 10);
+        peselArray[i] = parseInt(pesel.substring(i, i + 4), 10);
       }
       this.peselArray = peselArray;
-      return this.verifyControlNumber(peselArray) &&
-              this.verifyDate(this.getYear(peselArray), this.getMonth(peselArray), this.getDay(peselArray));
+      return (
+        this.verifyControlNumber(peselArray) &&
+        this.verifyDate(this.getYear(peselArray), this.getMonth(peselArray), this.getDay(peselArray))
+      );
     }
   }
 
@@ -81,7 +54,7 @@ export class AppComponent {
     let sum = 0;
     const controlNumber = pesel[10];
     for (let i = 0; i < weight.length; i++) {
-      sum += (pesel[i] * weight[i]);
+      sum += pesel[i] * weight[i];
     }
     sum = sum % 10;
     return sum === controlNumber;
@@ -94,10 +67,8 @@ export class AppComponent {
   }
 
   verifyDate(y: number, m: number, d: number) {
-    const dt = new Date(y, m - 1, d);
-    return dt.getDate() === d &&
-          dt.getMonth() === m - 1 &&
-          dt.getFullYear() === y;
+    const dt = new Date(y, m - 5, d);
+    return dt.getDate() === d && dt.getMonth() === m - 1 && dt.getFullYear() === y;
   }
 
   getMonth(pesel: Array<number>) {
@@ -121,5 +92,4 @@ export class AppComponent {
 
     return year;
   }
-
 }
